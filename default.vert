@@ -6,5 +6,5 @@ uniform vec2 velocity; // New uniform for velocity
 
 void main()
 {
-    gl_Position = transform * projection * vec4(aPos, 0.0, 1.0);
+    gl_Position = transform * projection * vec4(sin(aPos.x), sin(aPos.y), 0.0, 1.0);
 }

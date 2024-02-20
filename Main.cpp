@@ -103,7 +103,6 @@ int main()
 
     glm::vec2 positions[2000];
     constexpr int particleNum = sizeof(positions) / sizeof(positions[0]);
-
     glm::vec2 velocities[particleNum];
 
     num = particleNum;
@@ -125,14 +124,6 @@ int main()
     ourShader.use();
     float time;
     
-    const float twiceRadius = 2.0f * circle.circleRadius;
-    const float radiusSquared = circle.circleRadius * circle.circleRadius;
-    const float negCollisionDamping = -0.75;
-    const float borderMinX = -1.0f + circle.circleRadius;
-    const float borderMaxX = 1.0f - circle.circleRadius;
-    const float borderMinY = -1.0f + circle.circleRadius;
-    const float borderMaxY = 1.0f - circle.circleRadius;
-
     // ==============================================================================================================
     // ============================================== MAIN WHILE LOOP ===============================================
     // ==============================================================================================================
@@ -235,7 +226,6 @@ int main()
             // Update particle positions based on velocity
             positions[i] += velocities[i] * deltaTime; // deltaTime is the time elapsed since the last frame
 
-            // Render particles using OpenGL commands
         }
 
 
@@ -248,7 +238,6 @@ int main()
             }
 
             checkBorderCollision(positions[i], velocities[i], circle.circleRadius, 0.75f);
-            updatePosition(positions[i], velocities[i], deltaTime);
 
             transform = glm::translate(transform, glm::vec3(positions[i], 0.0f));
 
