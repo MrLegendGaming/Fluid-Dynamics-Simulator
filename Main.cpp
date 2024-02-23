@@ -15,7 +15,6 @@
 #include <random>
 
 
-
 float random_float() {
     std::random_device rd;
     std::mt19937 gen(rd());
@@ -99,9 +98,9 @@ int main()
     Shader ourShader("default.vert", "default.frag");
 
     // --------------------- CIRCLE SETTINGS ---------------------
-    Circle circle(0.02f, 100, glm::vec3(0.0f, 1.0f, 1.0f), ourShader.ID);
+    Circle circle(0.03f, 100, glm::vec3(0.0f, 1.0f, 1.0f), ourShader.ID);
 
-    glm::vec2 positions[2000];
+    glm::vec2 positions[2500];
     constexpr int particleNum = sizeof(positions) / sizeof(positions[0]);
     glm::vec2 velocities[particleNum];
 
@@ -207,7 +206,7 @@ int main()
             glm::vec2 velocityChange = glm::vec2(0.0f); // Default no change in velocity
 
             float distanceToMouse = glm::length(mousePos - positions[i]);
-            if (distanceToMouse <= 0.15f) {
+            if (distanceToMouse <= 0.25f) {
                 if (leftMouseButton == GLFW_PRESS) {
                     // Repel particles if left mouse button is pressed
                     velocityChange = glm::normalize(positions[i] - mousePos);
@@ -221,7 +220,7 @@ int main()
             // Apply velocity change to particles
             velocities[i] += velocityChange * 0.25f;
             // You may want to clamp the velocity to a maximum value if needed
-            // velocities[i] = glm::clamp(velocities[i], -maxSpeed, maxSpeed);
+            //velocities[i] = glm::clamp(velocities[i], -maxSpeed, maxSpeed);
 
             // Update particle positions based on velocity
             positions[i] += velocities[i] * deltaTime; // deltaTime is the time elapsed since the last frame
