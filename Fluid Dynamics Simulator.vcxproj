@@ -79,8 +79,8 @@
     <LibraryPath>C:\Users\Ahmed Mohsen\OpenGL\Fluid Dynamics Simulator\Libraries\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\Ahmed Mohsen\OpenGL\Fluid Dynamics Simulator\Libraries\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Ahmed Mohsen\OpenGL\Fluid Dynamics Simulator\Libraries\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)\Libraries\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)\Libraries\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>C:\Users\Ahmed Mohsen\OpenGL\Fluid Dynamics Simulator\Libraries\include;$(IncludePath)</IncludePath>
